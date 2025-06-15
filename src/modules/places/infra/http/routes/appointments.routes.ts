@@ -7,6 +7,8 @@ import AppointmentsController from '../controllers/Appointments/AppointmentsCont
 const appointmentsRouter = Router();
 const appointmentsController = new AppointmentsController();
 
+appointmentsRouter.post('/check-unpaid', appointmentsController.checkUnpaidAppointments);
+
 appointmentsRouter.post('/ailosWebhook', appointmentsController.AilosWebHook);
 
 appointmentsRouter.post('/payPix', appointmentsController.payPix);
