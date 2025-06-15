@@ -28,7 +28,7 @@ class CheckUnpaidAppointmentsService {
           appointment.canceled = true;
           appointment.observation = `${appointment.observation} - Cancelado por falta de pagamento após 5 minutos`;
           await this.appointmentsRepository.save(appointment);
-          await this.sendNotification(`Reserva ${appointment.observation} cancelada por falta de pagamento após 5 minutos`);
+          await this.sendNotification(`Reserva ${appointment.observation}`);
         }
       });
     } catch (error) {
