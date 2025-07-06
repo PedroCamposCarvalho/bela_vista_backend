@@ -84,9 +84,22 @@ import CancelationRulesRepository from '@modules/cancelation_rules/infra/typeorm
 import IScoreRepository from '@modules/score/repositories/IScoreRepository';
 import ScoreRepository from '@modules/score/infra/typeorm/repositories/ScoreRepository';
 
+import ConsultarCobranca from '@modules/places/services/Appointments/Payments/ConsultarCobranca';
+import CheckUnpaidPaymentsService from '@modules/places/services/Appointments/CheckUnpaidPaymentsService';
+
 container.registerSingleton<IScoreRepository>(
   'ScoreRepository',
   ScoreRepository,
+);
+
+container.registerSingleton<ConsultarCobranca>(
+  'ConsultarCobranca',
+  ConsultarCobranca,
+);
+
+container.registerSingleton<CheckUnpaidPaymentsService>(
+  'CheckUnpaidPaymentsService',
+  CheckUnpaidPaymentsService,
 );
 
 container.registerSingleton<ICancelationRulesRepository>(

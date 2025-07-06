@@ -37,6 +37,7 @@ import UpdateAvailableInDateService from '../../../../services/Appointments/Sche
 import ExecutePayment from '../../../../services/Appointments/Payments/ExecutePayment';
 import ConsultarCobranca from '../../../../services/Appointments/Payments/ConsultarCobranca';
 import CheckUnpaidAppointmentsService from '../../../../services/Appointments/CheckUnpaidAppointmentsService';
+import CheckUnpaidPaymentsService from '../../../../services/Appointments/CheckUnpaidPaymentsService';
 export default class AppointmentsController {
   public async consultarCobrancaAilos(
     request: Request,
@@ -497,6 +498,15 @@ export default class AppointmentsController {
   ): Promise<Response> {
     const checkUnpaidAppointmentsService = container.resolve(CheckUnpaidAppointmentsService);
     await checkUnpaidAppointmentsService.execute();
+    return response.json({ ok: true });
+  }
+
+  public async checkUnpaidPayments(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
+    const checkUnpaidPaymentsService = container.resolve(CheckUnpaidPaymentsService);
+    await checkUnpaidPaymentsService.execute();
     return response.json({ ok: true });
   }
 }

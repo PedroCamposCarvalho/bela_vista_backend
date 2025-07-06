@@ -3,9 +3,9 @@ import fetch from 'node-fetch';
 
 export default function projectSchedules(): void {
   cron.schedule('* * * * *', async function () {
-    console.log('Schedule check unpaid appointments is running');
+    console.log('Schedule check unpaid payments is running');
     try {
-      const response = await fetch('http://localhost:8888/appointments/check-unpaid', {
+      const response = await fetch('http://localhost:8888/appointments/check-unpaid-payments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -13,10 +13,10 @@ export default function projectSchedules(): void {
       });
 
       if (!response.ok) {
-        console.error('Failed to check unpaid appointments:', await response.text());
+        console.error('Failed to check unpaid payments:', await response.text());
       }
     } catch (error) {
-      console.error('Error checking unpaid appointments:', error);
+      console.error('Error checking unpaid payments:', error);
     }
   });
 }

@@ -21,6 +21,8 @@ class ConsultarCobranca {
     try {
       const token = await GetToken(httpsAgent);
 
+      console.log(`[ConsultarCobranca] Executando consulta para ID: ${id}`);
+
       const response = await axios({
         method: 'get',
         url: `https://pixcobranca.ailos.coop.br/ailos/pix-cobranca/api/v1/cob/${id}`,

@@ -9,6 +9,8 @@ const appointmentsController = new AppointmentsController();
 
 appointmentsRouter.post('/check-unpaid', appointmentsController.checkUnpaidAppointments);
 
+appointmentsRouter.post('/check-unpaid-payments', appointmentsController.checkUnpaidPayments);
+
 appointmentsRouter.post('/ailosWebhook', appointmentsController.AilosWebHook);
 
 appointmentsRouter.post('/payPix', appointmentsController.payPix);
